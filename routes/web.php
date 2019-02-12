@@ -15,14 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'MovieController@index');
+// Route::get('/home', 'MovieController@index');
 
-Route::get('/nav-bar', 'MovieController@getLastFive');
+
 
 
 Route::get('/movie/{id}', 'MovieController@get');
 
-// Route::resource('/home', 'MovieController');
+Route::resource('movies', 'MovieController');
 
 
 

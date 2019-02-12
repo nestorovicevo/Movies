@@ -10,8 +10,9 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
+        $lastFive = Movie::orderBy('title','desc')->take(5)->get();
 
-        return view('home', compact('movies'));
+        return view('home', compact('movies', 'lastFive'));
     }
 
     public function get(int $id)
@@ -20,9 +21,5 @@ class MovieController extends Controller
         return view('movie', compact('movie'));
     }
 
-    public function getLastFive(int $id)
-    {
-        $lastFive = Movie::orderBy('id', 'desc')->take(5)->get();
-        return view('home', compact('lastFive'));
-    }
+   
 }
